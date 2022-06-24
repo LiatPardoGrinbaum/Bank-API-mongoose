@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.static(publicDirPath));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
 });
 
 //for post and put
