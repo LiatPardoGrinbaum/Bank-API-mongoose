@@ -6,8 +6,8 @@ import { fileURLToPath } from "url";
 const app = express();
 
 const fileName = fileURLToPath(import.meta.url);
-const __diranme = path.dirname(fileName);
-const publicDirPath = path.join(__diranme, "../client/build");
+const __dirname = path.dirname(fileName);
+const publicDirPath = path.join(__dirname, "../client/build");
 // console.log(publicDirPath);
 app.use(cors());
 app.use(express.static(publicDirPath));
