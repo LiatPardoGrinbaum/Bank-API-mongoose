@@ -16,7 +16,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client/build/index.html"));
 });
 const PORT = process.env.PORT || 5050;
-
+//pay attention to the location of this:
 app.use(express.static(publicDirPath));
 
 app.listen(PORT, (error) => {
