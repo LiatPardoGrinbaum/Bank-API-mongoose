@@ -9,6 +9,7 @@ import express from "express";
 const fileName = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(fileName);
 const publicDirPath = path.join(__dirname, "client/build");
+console.log(__dirname);
 console.log(publicDirPath);
 
 app.get("*", (req, res) => {
