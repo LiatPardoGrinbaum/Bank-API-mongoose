@@ -18,7 +18,8 @@ const accountSchema = new mongoose.Schema({
     },
   },
   isActive: { type: Boolean },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  accountId: { type: Number },
+  // user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
 });
 
 const User = mongoose.model("users", userSchema);

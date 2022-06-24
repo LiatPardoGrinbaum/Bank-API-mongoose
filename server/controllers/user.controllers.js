@@ -1,4 +1,4 @@
-import { User } from "../models/user/user.models.js";
+import { User } from "../models/user-account-models.js";
 
 export const addUser = async (req, res) => {
   try {
@@ -14,6 +14,30 @@ export const addUser = async (req, res) => {
   }
 };
 
+export const getAllusers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send({ data: users });
+  } catch (error) {
+    res.status(400).send();
+  }
+};
+
+export const getSpecificUser = async (req, res) => {
+  try {
+    const { id } = req.params; //it means change the name from id to userId (destructure and then rename)
+    const user = await User.findById(id);
+    if (!user) {
+      throw new Error("User is not exist in users collection!");
+    }
+    res.status(200).send({ data: user });
+  } catch (error) {
+    res.status(400).send();
+    //will get this error for example if the id given is not vlid in mongoose (more then 24 cars for example), else if the id is in a valid format but not exist it will catch the error from above "user is not exist..."
+  }
+};
+
+/* 
 export const getSpecificUser = async (req, res) => {
   try {
     const { id: userId } = req.params; //it means change the name from id to userId (destructure and then rename)
@@ -60,3 +84,4 @@ export const deleteUserPermanent = async (req, res) => {
     res.status(400).send();
   }
 };
+ */
