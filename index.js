@@ -12,9 +12,9 @@ const publicDirPath = path.join(__dirname, "client/build");
 console.log(__dirname);
 console.log(publicDirPath);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "client/build/index.html"));
+// });
 const PORT = process.env.PORT || 5050;
 
 //pay attention to the location of this:
