@@ -8,9 +8,8 @@ const app = express();
 const fileName = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(fileName);
 const publicDirPath = path.join(__dirname, "../client/build");
-console.log(publicDirPath);
+// console.log(publicDirPath);
 app.use(cors());
-app.use(express.static(publicDirPath));
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
@@ -19,6 +18,8 @@ app.get("*", (req, res) => {
 //for post and put
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(publicDirPath));
 
 app.use("/api", userRouter);
 export { app };
