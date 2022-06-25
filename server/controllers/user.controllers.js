@@ -17,7 +17,7 @@ export const addUser = async (req, res) => {
 export const getAllusers = async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).send({ data: users });
+    res.status(200).send({ users }); //!changed it to users. not data: users. need to change in other parts too
   } catch (error) {
     res.status(400).send();
   }

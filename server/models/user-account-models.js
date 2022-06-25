@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   accounts: { type: Array, default: [] },
 });
+//SO I need to create a schema for the array? how do i post array items form the client?
 
 const accountSchema = new mongoose.Schema({
   cash: { type: Number, required: true },
