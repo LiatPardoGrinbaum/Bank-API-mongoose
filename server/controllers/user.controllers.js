@@ -25,43 +25,23 @@ export const getAllusers = async (req, res) => {
 
 export const getSpecificUser = async (req, res) => {
   try {
-    const { id } = req.params; //it means change the name from id to userId (destructure and then rename)
-    const user = await User.findById(id);
+    const username = req.params.username; //it means change the name from id to userId (destructure and then rename)
+    console.log(username);
+
+    const user = await User.findOne({ username });
     if (!user) {
       throw new Error("User is not exist in users collection!");
     }
     res.status(200).send({ data: user });
   } catch (error) {
-    res.status(400).send();
-    //will get this error for example if the id given is not vlid in mongoose (more then 24 cars for example), else if the id is in a valid format but not exist it will catch the error from above "user is not exist..."
+    res.status(400).send(error.message);
+    //will get this error for example if the id given is not vlid in mongoose (more then 24 cars for exa mple), else if the id is in a valid format but not exist it will catch the error from above "user is not exist..."
   }
 };
 
 /* 
-export const getSpecificUser = async (req, res) => {
-  try {
-    const { id: userId } = req.params; //it means change the name from id to userId (destructure and then rename)
-    const user = await User.findById(userId);
-    //another way:
-    // const { id } = req.params;
-    // const user = await User.findById(id);
-    if (!user) {
-      throw new Error("User is not exist in users collection!");
-    }
-    res.status(200).send({ data: user });
-  } catch (error) {
-    res.status(400).send();
-    //will get this error for example if the id given is not vlid in mongoose (more then 24 cars for example), else if the id is in a valid format but not exist it will catch the error from above "user is not exist..."
-  }
-};
-export const getAllusers = async (req, res) => {
-  try {
-    const users = await User.find();
-    res.status(200).send({ data: users });
-  } catch (error) {
-    res.status(400).send();
-  }
-};
+
+
 export const updateAnyUserField = async (req, res) => {
   try {
     const { id: userId } = req.params;
