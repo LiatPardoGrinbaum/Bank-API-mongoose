@@ -1,5 +1,6 @@
 import express from "express";
 import { userRouter } from "./routes/user.routes.js";
+import { accountRouter } from "./routes/account.routes.js";
 import cors from "cors";
 // import path from "path";
 // import { fileURLToPath } from "url";
@@ -22,4 +23,5 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(publicDirPath));
 
 app.use("/api", userRouter);
+app.use("/api", accountRouter);
 export { app };

@@ -9,3 +9,7 @@ if (process.env.NODE_ENV === "production") {
 export const userAPI = axios.create({
   baseURL: url,
 });
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }

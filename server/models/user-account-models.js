@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   accounts: { type: Array, default: [] },
 });
 
 const accountSchema = new mongoose.Schema({
   cash: { type: Number, required: true },
-  Credit: {
+  credit: {
     type: Number,
     required: true,
     validate(value) {
@@ -18,7 +18,7 @@ const accountSchema = new mongoose.Schema({
     },
   },
   isActive: { type: Boolean },
-  accountId: { type: Number },
+  accountId: { type: Number, unique: true },
   // user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
 });
 
