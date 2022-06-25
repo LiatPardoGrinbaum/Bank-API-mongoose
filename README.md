@@ -52,17 +52,21 @@ Account objects from accounts json:
   https://bank-api-v2-liat.herokuapp.com/api/users
 
 - Get user by username, GET method:  
-  https://bank-api-v2-liat.herokuapp.com/api/users/:username for exmaple:https://bank-api-v2-liat.herokuapp.com/api/users/koch
+  https://bank-api-v2-liat.herokuapp.com/api/users/:username  
+  for exmaple:https://bank-api-v2-liat.herokuapp.com/api/users/koch
 
 - Add new user, POST method:  
   https://bank-api-v2-liat.herokuapp.com/api/users
 
-  In Postman:  
-   {  
-   "username": _enter number_,  
-   "password": "_enter string_",  
-   "accounts": _enter array with numbers_  
+  In Postman:
+
+  ```
+   {
+      "username": _enter number_,
+      "password": "_enter string_",
+      "accounts": _enter array with numbers_
    }
+  ```
 
 - Get all Accounts data, GET method:  
   https://bank-api-v2-liat.herokuapp.com/api/accounts
@@ -70,37 +74,49 @@ Account objects from accounts json:
 - Get account by accountId, GET method:  
   https://bank-api-v2-liat.herokuapp.com/api/accounts/getaccount
 
-  In postmen:  
-   {  
-   "accountId":_enter number_,  
+  In postmen:
+
+  ```
+   {
+      "accountId":_enter number_,
    }
+  ```
 
 - Deposit cash to an account by accountid, PUT method:  
   https://bank-api-v2-liat.herokuapp.com/api/accounts/deposit
 
-  In Postman:  
-   {  
-   "accountId":_enter number_,  
-   "amount": _enter number_  
+  In Postman:
+
+  ```
+   {
+      "accountId":_enter number_,
+      "amount": _enter number_
    }
+  ```
 
 - Update credit by accountId, PUT method:  
   https://bank-api-v2-liat.herokuapp.com/api/accounts/credit
 
-  In Postman:  
-   {  
-   "accountId":_enter number_,  
-   "amount": _enter number_  
+  In Postman:
+
+  ```
+   {
+      "accountId":_enter number_,
+      "amount": _enter number_
    }
+  ```
 
 - Withdraw money from an account by accountId.  
   Can withdraw money until the cash and credit run out. PUT method:  
   https://bank-api-v2-liat.herokuapp.com/api/accounts/withdraw
 
-  In Postman:  
-   {  
-   "accountId":_enter number_,  
-   "amount": _enter number_  
+  In Postman:
+
+  ```
+   {
+      "accountId":_enter number_,
+      "amount": _enter number_
    }
+  ```
 
   &copy; Liat Pardo Grinbaum
