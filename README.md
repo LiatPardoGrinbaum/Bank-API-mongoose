@@ -119,4 +119,6 @@ Account objects from accounts json:
    }
   ```
 
+  [test some end point with react](https://bank-api-v2-liat.herokuapp.com/)
+
   &copy; Liat Pardo Grinbaum
