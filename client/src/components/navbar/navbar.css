@@ -1,0 +1,33 @@
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(118, 118, 160);
+  width: 100%;
+  height: 5rem;
+  position: fixed;
+  top: 0;
+}
+
+.right-container {
+  display: flex;
+}
+
+.right-container a {
+  padding: 0.8rem;
+  text-decoration: none;
+  color: azure;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.right-container a:hover {
+  color: rgb(148, 241, 241);
+}
+
+.logo {
+  margin-left: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(200, 250, 250);
+}

@@ -1,16 +1,44 @@
 import { User } from "../models/user-account-models.js";
 
+//* made some changes due to authenticaon addition
+//* Added login and logout routes. (add user is the register route)
+
+//(signup / register)
 export const addUser = async (req, res) => {
   try {
     const userBodyToSave = req.body;
     const newUser = new User(userBodyToSave);
-    console.log({ userBodyToSave });
     //save() is asynchronic
     const savedUser = await newUser.save();
-    res.status(200).send({ data: savedUser });
+    const token = await savedUser.generateAuthToken();
+    res.status(200).send({ savedUser, token });
   } catch (error) {
-    res.status(400).send();
-    console.log(error.message);
+    res.status(400).send(error.message);
+  }
+};
+//login
+export const login = async (req, res) => {
+  try {
+    const user = await User.findByCredentials(req.body.email, req.body.password);
+    const token = await user.generateAuthToken();
+    res.send({ user, token });
+  } catch (e) {
+    res.status(400).send(e.message);
+  }
+};
+
+//logout
+//before sending response it goes to auth (middlewere) and gets current logged in user and token.
+export const logOut = async (req, res) => {
+  try {
+    //get rid of urrent token...
+    req.user.tokens = req.user.tokens.filter((token) => {
+      return token.token !== req.token;
+    });
+    res.send();
+    await req.user.save();
+  } catch (e) {
+    res.status(500).send(e);
   }
 };
 
