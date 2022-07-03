@@ -19,7 +19,9 @@ export const addUser = async (req, res) => {
 //login
 export const login = async (req, res) => {
   try {
+    if (!req.body.email || !req.body.password) throw new Error("Please fill all fields.");
     const user = await User.findByCredentials(req.body.email, req.body.password);
+
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (e) {
